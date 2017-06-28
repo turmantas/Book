@@ -119,7 +119,6 @@ public class StudentSQL
     				.getConnection()
     				.createStatement();
     	st.executeUpdate(query);
-		System.out.println(query);
     }
 
 }

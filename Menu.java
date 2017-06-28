@@ -14,10 +14,9 @@ public class Menu
         System.out.println("3. Patikrinti kursa sarase.");
         System.out.println("4. Registruoti nauja studenta.");
         System.out.println("5. Perziureti studentu sarasa.");
-        System.out.println("6. Perziureti studenta pagal elektroninio pasto adresa.");
+        System.out.println("6. Patikrinti studenta pagal elektroninio pasto adresa.");
         System.out.println("7. Isvesti pasirinkto studento vidurki.");
         System.out.println("8. Ivesti nauja pazymi");
-        System.out.println("9. Atnaujinti studentu vidurkius..");
         System.out.println("0. Iseiti");
     }
     
@@ -29,8 +28,8 @@ public class Menu
         	System.out.print(" > ");
         	item = scanner.nextInt();
         	scanner.nextLine();
-        	if (item < 0 || item > 9) System.out.println("Skaicius turi buti nuo 1 iki 5"); return item;
-        } while (item < 0 || item > 9);
+        	if (item < 0 || item > 8) System.out.println("Skaicius turi buti nuo 1 iki 5"); return item;
+        } while (item < 0 || item > 8);
     }
     
     public void start () throws Exception
@@ -50,7 +49,6 @@ public class Menu
     		case 6 : doShowStudent(); break;		
     		case 7 : doShowAVGStudent(); break;
     		case 8 : doAddPoint(); break;
-    		case 9 : doUpdateAvg(); break;
   			}
         } while (item != 0);
     	System.out.println("Bye");
@@ -144,16 +142,12 @@ public class Menu
 	        	System.out.println("Added new Record#" + point.point_id);
 	        else
 	        	System.out.println("Error");
+	        
+	        StudentSQL sql2 = new StudentSQL();
+			sql2.updateAvgPoints(0);        
         }
     }
-	
-	private void doUpdateAvg() throws SQLException 
-	{
-		StudentSQL sql = new StudentSQL();
-		sql.updateAvgPoints(0);
-		System.out.println("Vidurkiai atnaujinti");
-	}
-  
+
    
 
     public String getErrorText (String error)
