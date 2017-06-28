@@ -1,9 +1,5 @@
 import java.sql.*;
-/**
- * 
- * @author A.Buicenka
- *Prisijungimas prie duomenø bazës
- */
+
 public class DBase
 {
 	String DRIVER = "com.mysql.jdbc.Driver";
