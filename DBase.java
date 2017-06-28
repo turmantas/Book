@@ -6,11 +6,11 @@ import java.sql.*;
  */
 public class DBase
 {
-	String driver = "com.mysql.jdbc.Driver";
-	String url = "jdbc:mysql://localhost:3306/";
-	String db = "Book";
-	String username = "root";
-	String password = "qwerty";
+	String DRIVER = "com.mysql.jdbc.Driver";
+	String URL = "jdbc:mysql://localhost:3306/";
+	String DB = "Book";
+	String USERNAME = "root";
+	String PASSWORD = "qwerty";
 	
 	private static DBase instance = null;
 	public static DBase getInstance() 
@@ -31,8 +31,8 @@ public class DBase
 	private	DBase (){
 		try 
 		{
-		Class.forName(driver);
-		connection = DriverManager.getConnection(url+db,username,password);
+		Class.forName(DRIVER);
+		connection = DriverManager.getConnection(URL+DB,USERNAME,PASSWORD);
 		System.out.println("Connected");
 		} catch (Exception e) {System.out.println("Connection problems--> " + e.getMessage());}
 	}
